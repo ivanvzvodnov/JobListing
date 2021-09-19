@@ -45,8 +45,7 @@ const initialState = {
     description: ""
 }
 
-export default props => {
-
+export const NewJobModal = ({postJob, closeModal, newJobModal}) => {
     const [jobDetails, setJobDetails] = useState(initialState)
     const [loading, setLoading] = useState(false)
 
@@ -67,24 +66,24 @@ export default props => {
         }
         if(!jobDetails.skills.length) return
         setLoading(true)
-        await props.postJob(jobDetails)
+        await postJob(jobDetails)
         closeModal()
     }
 
-    const closeModal = () => {
+    const newCloseModal = () => {
         setJobDetails(initialState)
         setLoading(false)
-        props.closeModal()
+        closeModal()
     }
 
     const classes = useStyles()
     console.log(jobDetails)
     return(
-        <Dialog open={props.newJobModal} fullWidth>
+        <Dialog open={newJobModal} fullWidth>
             <DialogTitle>
                 <Box display = "flex" justifyContent = "space-between" alignItems = "center">
                     Post Job
-                    <IconButton onClick = {closeModal}>
+                    <IconButton onClick = {newCloseModal}>
                         <Close />
                     </IconButton>
                 </Box>

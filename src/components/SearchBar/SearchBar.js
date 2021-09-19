@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     }
 })
 
-export default props => {
+export const SearchBar = ({fetchJobsCustom}) => {
     const [loading, setLoading] = useState(false)
     const [jobSearch, setJobSearch] = useState({
         type: "Full time",
@@ -29,7 +29,7 @@ export default props => {
 
     const search = async () => {
         setLoading(true)
-        await props.fetchJobsCustom(jobSearch)
+        await fetchJobsCustom(jobSearch)
         setLoading(false)
     }
 

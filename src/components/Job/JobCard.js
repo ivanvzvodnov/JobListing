@@ -33,25 +33,25 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
-export default props => {
+export const JobCard =  ({title, companyName, skills, postedOn, type, location, open}) => {
     const classes = useStyles()
     return (
         <Box p = {2} className = {classes.wrapper}>
             <Grid container alignItems = "center">
                 <Grid item xs>
-                    <Typography variant = "subtitle1">{props.title}</Typography>
-                    <Typography className = {classes.companyName} variant = "subtitle2">{props.companyName}</Typography>
+                    <Typography variant = "subtitle1">{title}</Typography>
+                    <Typography className = {classes.companyName} variant = "subtitle2">{companyName}</Typography>
                 </Grid>
                 <Grid item container xs>
-                    {props.skills.map(skill => <Grid className = {classes.skillChip} item key = {skill}>{skill}</Grid>)}
+                    {skills.map(skill => <Grid className = {classes.skillChip} item key = {skill}>{skill}</Grid>)}
                 </Grid>
                 <Grid item container direction = "column" alignItems = "flex-end" xs>
                     <Grid item>
-                        <Typography variant = "caption"> {differenceInDays(Date.now(), props.postedOn)} days ago | {props.type} | {props.location}</Typography>
+                        <Typography variant = "caption"> {differenceInDays(Date.now(), postedOn)} days ago | {type} | {location}</Typography>
                     </Grid>
                     <Grid item>
                         <Box mt = {2}>
-                            <Button onClick = {props.open} variant = "outlined">Check</Button>
+                            <Button onClick = {open} variant = "outlined">Check</Button>
                         </Box>
                     </Grid>
                 </Grid>

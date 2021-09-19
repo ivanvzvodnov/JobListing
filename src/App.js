@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Box, Button, CircularProgress, Grid, ThemeProvider } from "@material-ui/core";
 import theme from './theme/theme'
-import Header from './components/Header/'
-import SearchBar from "./components/SearchBar/";
-import JobCard from "./components/Job/JobCard";
-import NewJobModal from "./components/Job/NewJobModal";
+import {Header} from './components/Header/Header'
+import {SearchBar} from "./components/SearchBar/SearchBar";
+import {JobCard} from "./components/Job/JobCard";
 import { firestore } from "./firebase/config";
 import {Close} from '@material-ui/icons'
-import ViewJobModal from "./components/Job/ViewJobModal";
+import {ViewJobModal} from './components/Job/ViewJobModal';
+import {NewJobModal} from './components/Job/NewJobModal'
 
 
-export default () => {
+export const App = () => {
   const [jobs, setJobs] = useState([])
   const [loading, setLoading] = useState(true)
   const [customSearch, setCustomSearch] = useState(false)
